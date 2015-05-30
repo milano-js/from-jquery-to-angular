@@ -1,4 +1,6 @@
-# MilanoJS Talk #2 - 01 Jul 2014 #
+MilanoJS Talk #2 - 01 Jul 2014
+==============================
+[![bitHound Score](https://www.bithound.io/github/milano-js/from-jquery-to-angular/badges/score.svg)](https://www.bithound.io/github/milano-js/from-jquery-to-angular)
 
 In this talk we will write a simple directive in AngularJS based on a jQuery plugin.
 We have chosen MasterBlaster plugin ([link](https://github.com/aef-/jquery.masterblaster)), a simple tag manager.
