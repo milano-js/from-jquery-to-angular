@@ -37,6 +37,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
+    "postinstall": "bower install && webdriver-manager update",
     "test": "grunt test",
     "test-e2e": "grunt test-e2e"
   }
