@@ -11,8 +11,9 @@ angular.module('mjsTalkApp')
     return {
       restrict: 'E',
       scope: {
-        unique : '@unique',
-        dirTagList : '=tags'
+        unique: '@',
+        dirTagList: '=tags',
+        maxTags: '@max'
       },
       template:
         '<div class="row master-blaster">' +
@@ -26,7 +27,7 @@ angular.module('mjsTalkApp')
               '<div class="input-group">' +
                 '<input type="text" ng-model="newTag" class="form-control">' +
                 '<span class="input-group-btn">' +
-                  '<button class="btn btn-default" type="submit"  ng-disabled="tagger.tags.length >= maxTags" >' +
+                  '<button class="btn btn-default" type="submit" ng-disabled="dirTagList.length >= maxTags" >' +
                     '<span class="glyphicon glyphicon-plus"> Tag</span>' +
                   '</button>' +
                 '</span>' +
@@ -38,9 +39,10 @@ angular.module('mjsTalkApp')
       link: function postLink(scope) {
         var unique = scope.unique === undefined ? true : scope.$eval(scope.unique);
         scope.newTag = '';
+        scope.$eval(scope.maxTags);
 
         scope.addTag = function() {
-          if (!unique || (unique && scope.dirTagList.indexOf(scope.newTag) === -1)) {
+          if (!unique || (unique && scope.dirTagList.indexOf(scope.newTag) === -1) && scope.newTag) {
             scope.dirTagList.push(scope.newTag);
             scope.newTag = '';
           }
