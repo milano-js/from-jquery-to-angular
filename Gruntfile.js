@@ -355,6 +355,12 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    protractor: {
+      options: {
+        configFile: "test-e2e/protractor.conf.js"
+      },
+      all: {}
     }
   });
 
@@ -385,6 +391,14 @@ module.exports = function (grunt) {
     'autoprefixer',
     'connect:test',
     'karma'
+  ]);
+
+  grunt.registerTask('test-e2e', [
+    'clean:server',
+    'concurrent:test',
+    'autoprefixer',
+    'connect:test',
+    'protractor'
   ]);
 
   grunt.registerTask('build', [
